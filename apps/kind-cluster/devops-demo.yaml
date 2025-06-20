@@ -32,7 +32,7 @@ spec:
     spec:
       automountServiceAccountToken: false
       containers:
-      - image: ghcr.io/paulorpdl/devops-demo@sha256:0afadf1b5b6f8d24a292738378e0dbe362a04580fdf2c72b62177f4d6cefd00b
+      - image: ghcr.io/paulorpdl/devops-demo@sha256:067968cb9d922b2636846081f910e22ff7dabb4c6dff1afec81ee7f4eb7c1296
         name: devops-demo
         ports:
         - containerPort: 8000
