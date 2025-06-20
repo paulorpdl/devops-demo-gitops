@@ -44,11 +44,19 @@ spec:
         - configMapRef:
             name: devops-demo-environment-vars
             optional: true
-        image: ghcr.io/paulorpdl/devops-demo@sha256:bcceb718628e12e4fee27a7b40603c22f3b9ee592ab050db38be51a9f83f0790
+        image: ghcr.io/paulorpdl/devops-demo@sha256:47bdb92be97c3914ddf3d1234115e522458abfd3fb3923f6a1b0f957f24f93ba
+        livenessProbe:
+          httpGet:
+            path: /api/
+            port: http
         name: devops-demo
         ports:
         - containerPort: 8000
           name: http
+        readinessProbe:
+          httpGet:
+            path: /api/
+            port: http
         resources:
           limits:
             cpu: 2000m
