@@ -44,7 +44,7 @@ spec:
         - configMapRef:
             name: devops-demo-environment-vars
             optional: true
-        image: ghcr.io/paulorpdl/devops-demo@sha256:e952274cc8623a814a8831e29ed5bc186224ee1f7d464a16f0d5e3f16070622e
+        image: ghcr.io/paulorpdl/devops-demo@sha256:d6ad222358a8b348f05b8bc1ee71b617397feec612553b237ab7c707f3041d38
         livenessProbe:
           httpGet:
             path: /api/
