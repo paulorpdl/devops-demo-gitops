@@ -32,7 +32,7 @@ spec:
     spec:
       automountServiceAccountToken: false
       containers:
-      - image: ghcr.io/paulorpdl/devops-demo@sha256:0afadf1b5b6f8d24a292738378e0dbe362a04580fdf2c72b62177f4d6cefd00b
+      - image: ghcr.io/paulorpdl/devops-demo@sha256:0eeacf090f97e15205ae1079c81be037b1212f55ac0d8d0a92286dc723bb1b8e
         name: devops-demo
         ports:
         - containerPort: 8000
@@ -45,6 +45,31 @@ spec:
             cpu: 1000m
             ephemeral-storage: 1Gi
             memory: 1Gi
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: devops-demo
+spec:
+  maxReplicas: 5
+  metrics:
+  - resource:
+      name: cpu
+      target:
+        averageUtilization: 50
+        type: Utilization
+    type: Resource
+  - resource:
+      name: memory
+      target:
+        averageUtilization: 50
+        type: Utilization
+    type: Resource
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: devops-demo
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
