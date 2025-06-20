@@ -32,7 +32,11 @@ spec:
     spec:
       automountServiceAccountToken: false
       containers:
-      - image: ghcr.io/paulorpdl/devops-demo@sha256:0eeacf090f97e15205ae1079c81be037b1212f55ac0d8d0a92286dc723bb1b8e
+      - envFrom:
+        - configMapRef:
+            name: devops-demo-environment-vars
+            optional: true
+        image: ghcr.io/paulorpdl/devops-demo@sha256:15fab84d1f5a28549a45973e579f5df6f07e3b33cd3a30ed093331a1e3e2407e
         name: devops-demo
         ports:
         - containerPort: 8000
