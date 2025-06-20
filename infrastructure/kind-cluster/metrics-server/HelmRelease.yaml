@@ -15,3 +15,6 @@ spec:
       interval: 5m
   releaseName: metrics-server
   targetNamespace: kube-system
+  values:
+    args:
+      - --kubelet-insecure-tls # Required to work in Kind Local Cluster.
