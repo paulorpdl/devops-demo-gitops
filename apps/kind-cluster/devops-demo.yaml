@@ -44,7 +44,7 @@ spec:
         - configMapRef:
             name: devops-demo-environment-vars
             optional: true
-        image: ghcr.io/paulorpdl/devops-demo@sha256:3127d44f4f72a7d204d740dfc479484e45645d86fd52fcb7740143b558b3b9bf
+        image: ghcr.io/paulorpdl/devops-demo@sha256:b13d49aee5522866dd2af772df3c82cb89d11755dc8ecdae4bd4f61a7681ead8
         name: devops-demo
         ports:
         - containerPort: 8000
